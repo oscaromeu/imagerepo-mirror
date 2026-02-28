@@ -29,6 +29,22 @@ Authentication is handled via [Workload Identity](https://cloud.google.com/kuber
 | `--metrics-addr` | `:8080` | Address for the Prometheus metrics endpoint |
 
 
+## 🗒️ TODO
+
+- **Unit tests for `ImageRepositoryTagsChangePredicate`** — pure table-driven tests covering all event combinations:
+
+  | Event  | Condition | Expected |
+  |--------|-----------|----------|
+  | Create | `LastScanResult` is nil | `false` |
+  | Create | `LastScanResult.Revision` is empty | `false` |
+  | Create | `LastScanResult.Revision` is set | `true` |
+  | Update | Old and new revision are the same | `false` |
+  | Update | Old and new revision differ | `true` |
+  | Update | Old `LastScanResult` is nil, new is non-nil | `true` |
+  | Update | Both `LastScanResult` are nil | `false` |
+
+- **Integration tests for `ImageRepositoryWatcher`** — refactor `crane.Copy` and `google.DefaultTokenSource` behind interfaces so they can be swapped for fakes in tests; use `envtest` to run the reconciler against an in-memory Kubernetes API server.
+
 # 📚 Guides
 
 * [Watching for source changes](https://fluxcd.io/flux/gitops-toolkit/source-watcher/)
