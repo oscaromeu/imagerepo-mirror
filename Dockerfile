@@ -27,7 +27,7 @@ COPY controllers/ controllers/
 ENV CGO_ENABLED=0
 RUN xx-go build -a -o imagerepo-mirror main.go
 
-FROM alpine:3.22
+FROM alpine:3.23
 
 RUN apk add --no-cache ca-certificates tini
 
