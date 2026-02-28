@@ -60,7 +60,7 @@ func main() {
 		"Enable leader election for controller manager. "+
 			"Enabling this will ensure there is only one active controller manager.")
 	flag.StringVar(&destinationRegistry, "destination-registry", "",
-		"Destination registry prefix to mirror images to (e.g. europe-west4-docker.pkg.dev/my-project/flanks).")
+		"Destination registry prefix to mirror images to (e.g. europe-west4-docker.pkg.dev/my-project/my-repo).")
 	flag.IntVar(&workers, "workers", 4, "Number of ImageRepository reconciles to run concurrently.")
 	flag.IntVar(&tagWorkers, "tag-workers", 4, "Number of tag copies to run concurrently per reconcile.")
 	logOptions.BindFlags(flag.CommandLine)

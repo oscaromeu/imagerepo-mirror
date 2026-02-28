@@ -38,7 +38,7 @@ import (
 // and mirrors them to the configured destination registry.
 type ImageRepositoryWatcher struct {
 	client.Client
-	DestinationRegistry string // e.g. "europe-west4-docker.pkg.dev/my-project/flanks"
+	DestinationRegistry string // e.g. "europe-west4-docker.pkg.dev/my-project/my-repo"
 	Workers             int    // concurrent ImageRepository reconciles
 	TagWorkers          int    // concurrent tag copies per reconcile
 	tokenSource         oauth2.TokenSource
