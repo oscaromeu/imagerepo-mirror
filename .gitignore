@@ -1,0 +1,23 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Local build output dir
+bin/
+testbin/
+build/
+
+# Test manifests generated at build time
+config/crd/bases/ocirepositories.yaml
+config/crd/bases/gitrepositories.yaml
+config/crd/bases/buckets.yaml
+config/crd/bases/externalartifacts.yaml
