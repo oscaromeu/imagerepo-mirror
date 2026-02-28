@@ -16,6 +16,9 @@ bin/
 testbin/
 build/
 
+# Private notes
+TODO.md
+
 # Test manifests generated at build time
 config/crd/bases/ocirepositories.yaml
 config/crd/bases/gitrepositories.yaml

@@ -85,7 +85,6 @@ func (r *ImageRepositoryWatcher) Reconcile(ctx context.Context, req ctrl.Request
 	g, _ := errgroup.WithContext(ctx)
 	g.SetLimit(r.TagWorkers)
 	for _, tag := range scan.LatestTags {
-		tag := tag
 		g.Go(func() error {
 			src := fmt.Sprintf("%s:%s", imageRepo.Status.CanonicalImageName, tag)
 			dst := fmt.Sprintf("%s/%s:%s", r.DestinationRegistry, imageName, tag)
